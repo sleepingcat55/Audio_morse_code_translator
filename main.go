@@ -250,7 +250,6 @@ func decodage_morse(mot_a_decoder string) string {
 				}
 			}
 		} else if string(mot_a_decoder[i]) == "_" {
-			// fmt.Printf("Dans la 2eme condition : %c\n", mot_a_decoder[i])
 			tempo = ""
 			resu += " "
 		} 
