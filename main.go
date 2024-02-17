@@ -200,8 +200,6 @@ func run(a_coder_audio string) error {
 	return nil
 }
 
-// -----------------------------------------------------------------------
-
 var (
 	alphabet = [36]string{"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"}
 	at_morse = [36]string{".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--..", ".----", "..---", "...--", "....-", ".....", "-....", "--...", "---..", "----.", "-----"}
@@ -236,7 +234,6 @@ func codage_morse(mot_a_coder string) string {
 	// fmt.Printf("%s\n", mot_coder)
 }
 
-// fonctionne ! Ne pas toucher !!!!!!!!!!
 func decodage_morse(mot_a_decoder string) string {
 	var resu string
 	var tempo string
@@ -267,29 +264,22 @@ func decodage_morse(mot_a_decoder string) string {
 	return resu
 }
 
-// ------------------------------------------------------------------------
 
-// fonctionne
 func main() {
-	// ----------------------------------------------------------
-	// entree := "abcd zsx Remi 12 Gillou 34 90"	// marche
 	inputReader = bufio.NewReader(os.Stdin)
-	fmt.Println("Entrez la phrase que vous voulez coder en Morse : ")
+	fmt.Println("Your morse sentence : ")
 	inputt, err = inputReader.ReadString('\n')
 	if err == nil {
-		fmt.Printf("Entree : %s\n", inputt)
+		fmt.Printf("Input : %s\n", inputt)
 	}
 
-	// mise en forme
 	mot_to_coder := strings.ToLower(inputt)
 
-	//partie codage fonctionnelle
 	codage := codage_morse(mot_to_coder)
-	fmt.Printf("Codage du messsage : %s\n", codage)
+	fmt.Printf("Your sentence : %s\n", codage)
 
-	// partie decodage fonctionnelle
 	decodage := decodage_morse(codage)
-	fmt.Printf("Decodage du message : %s\n", decodage)
+	fmt.Printf("Your sentence : %s\n", decodage)
 	// ------------------------------------------------------------
 
 	flag.Parse()
