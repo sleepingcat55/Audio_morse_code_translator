@@ -208,15 +208,12 @@ var inputReader *bufio.Reader
 var inputt string
 var err error
 
-// fonctionne ! Ne pas toucher !!!!!!!!!!
 func codage_morse(mot_a_coder string) string {
 	var resu string
 	for i:=0; i<len(mot_a_coder); i++ {
 		for j:=0; j<len(alphabet); j++ {
 			if string(mot_a_coder[i]) == alphabet[j] {
-			//	fmt.Printf("%d", j)
-				resu += at_morse[j]	// lettre trouvé, on concatene dans resu toutes les lettres les unes a la suite des autres
-				// on ajoute / pour separer chaque lettres d'un mot sinon impossible de faire une partie decodage vu qu'il n'y a pas de meme quantité de .-
+				resu += at_morse[j]	
 				resu += "/"	
 			} else if string(mot_a_coder[i]) == " " {
 				resu += "_"	// permet de simuler un espace
@@ -229,9 +226,7 @@ func codage_morse(mot_a_coder string) string {
 			
 		}
 	}
-	//fmt.Println()
 	return resu
-	// fmt.Printf("%s\n", mot_coder)
 }
 
 func decodage_morse(mot_a_decoder string) string {
@@ -249,8 +244,7 @@ func decodage_morse(mot_a_decoder string) string {
 
 			for j:=0; j<len(at_morse); j++ {
 				if entmpo == at_morse[j] {
-					//	fmt.Printf("%d", j)
-					resu += alphabet[j]	// lettre trouvé, on concatene dans resu toutes les lettres les unes a la suite des autres
+					resu += alphabet[j]	
 					entmpo = ""
 					tempo = ""
 				}
@@ -280,7 +274,6 @@ func main() {
 
 	decodage := decodage_morse(codage)
 	fmt.Printf("Your sentence : %s\n", decodage)
-	// ------------------------------------------------------------
 
 	flag.Parse()
 	if err := run(codage); err != nil {
